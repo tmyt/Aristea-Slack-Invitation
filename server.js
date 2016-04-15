@@ -22,4 +22,4 @@ app.get('/api/get', (req, res) => {
 
 // routers
 app.use('/', express.static('./public', {maxAge: 3600 * 1000}));
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
