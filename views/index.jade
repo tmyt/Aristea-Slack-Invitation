@@ -1,0 +1,32 @@
+doctype
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='/components/Umi/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Open+Sans')
+    link(rel='stylesheet', href='/css/extra.css')
+    script(src='//code.jquery.com/jquery-2.1.4.min.js')
+    script.
+      $(document).ready(function(){
+        $('#get').click(function(){
+          $.get('/api/get', {email: $('#email').val()}, function(){
+            
+          });
+        });
+      })
+    title Get Invitation | Aristea Slack
+  body
+    .container.text-center.vertical-center
+      .row
+        img.logo-image(src='/img/logo.png')
+      .row
+        .col-md-4.col-sm-6.col-xs-8.col-md-offset-4.col-sm-offset-3.col-xs-offset-2
+          .input-group
+            span.input-group-addon: span.glyphicon.glyphicon-envelope
+            input.form-control#email(type='text',placeholder='E-Mail')
+      .row
+        .col-md-4.col-sm-6.col-xs-8.col-md-offset-4.col-sm-offset-3.col-xs-offset-2
+          button.btn.btn-info.btn-block#get(style='margin-top: 0.5em'): strong Get Invitation
+    script(src='/components/Umi/dist/js/bootstrap.min.js', async)

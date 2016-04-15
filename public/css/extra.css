@@ -1,0 +1,19 @@
+html,body{
+  height: 100%;
+}
+
+.vertical-center{
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+body{
+  background-color: #e0e7f0;
+}
+
+.logo-image{
+  margin-bottom: 20px;
+}
