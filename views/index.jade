@@ -11,8 +11,21 @@ html
     script.
       $(document).ready(function(){
         $('#get').click(function(){
+          $('#get').button('loading');
           $.get('/api/get', {email: $('#email').val()}, function(){
-            
+            $('#get').button('reset');
+            setTimeout(function(){
+              $('#get').addClass('btn-success');
+              $('#get').removeClass('btn-info');
+              $('#get').children().remove();
+              $('#get').append($('<strong>').text('Invitation Sent!'));
+            }, 0);
+            setTimeout(function(){
+              $('#get').removeClass('btn-success');
+              $('#get').addClass('btn-info');
+              $('#get').children().remove();
+              $('#get').append($('<strong>').text('Get Invitation'));
+            }, 5000);
           });
         });
       })
@@ -28,5 +41,5 @@ html
             input.form-control#email(type='text',placeholder='E-Mail')
       .row
         .col-md-4.col-sm-6.col-xs-8.col-md-offset-4.col-sm-offset-3.col-xs-offset-2
-          button.btn.btn-info.btn-block#get(style='margin-top: 0.5em'): strong Get Invitation
+          button.btn.btn-info.btn-block#get(data-loading-text='Sending...',style='margin-top: 0.5em'): strong Get Invitation
     script(src='/components/Umi/dist/js/bootstrap.min.js', async)
